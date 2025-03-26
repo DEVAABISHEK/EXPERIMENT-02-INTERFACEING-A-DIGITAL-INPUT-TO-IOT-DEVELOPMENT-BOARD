@@ -2,12 +2,16 @@
 
 
 **DATE:**
+26/03/2025
 
 **NAME:**
+DEVA ABISHEK P
 
 **ROLL NO:**
+212223110008
 
 **DEPARTMENT:**
+CSE(IOT)
 
 ## Aim
 
@@ -85,10 +89,39 @@ With its power-efficient design, built-in LoRaWAN support, and flexible communic
 ## STM 32 CUBE PROGRAM
 
 ```
-// Your STM 32 CUBE Program code here
+#include "main.h"
+#include "stdbool.h"
+bool IRSENSOR;
+void IRPAIR();
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+while (1)
+  {
+    IRPAIR();
+}
+void IRPAIR()
+{
+	IRSENSOR=HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_4);
+	if(IRSENSOR==0){
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+		HAL_Delay(1000);
+	}
+	else{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+		HAL_Delay(1000);
+	}
+}
 ```
 
 ## OUTPUT
+![WhatsApp Image 2025-03-26 at 11 45 59_6959bfa5](https://github.com/user-attachments/assets/9ecc925c-e954-4bf6-bf5b-ff260fe8452d)
+![WhatsApp Image 2025-03-26 at 11 49 31_10b4b4ea](https://github.com/user-attachments/assets/f44bdf04-190b-44a6-8173-08a7a73269a3)
+
 
 ## Result
 
